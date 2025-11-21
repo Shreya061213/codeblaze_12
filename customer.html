@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Customer</h2>
+        <button onclick="showCustomerTab('balanceTab')">Udhaar Balance</button>
+        <button onclick="showCustomerTab('paymentsTab')">Pay Now</button>
+        <button onclick="showCustomerTab('loyaltyTab')">Loyalty Points</button>
+        <button onclick="showCustomerTab('receiptTab')">Receipts</button>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+
+        <!-- Udhaar Balance -->
+        <div id="balanceTab" class="tabContent">
+            <h2>Your Udhaar Balance</h2>
+            <button onclick="fetchCustomerUdhaar()">Refresh Balance</button>
+            <div id="balanceBox" class="card"></div>
+        </div>
+
+        <!-- Payments -->
+        <div id="paymentsTab" class="tabContent hidden">
+            <h2>UPI Payment</h2>
+            <button onclick="alert('UPI Link Sent!')">Pay with UPI</button>
+        </div>
+
+        <!-- Loyalty Points -->
+        <div id="loyaltyTab" class="tabContent hidden">
+            <h2>Loyalty Points</h2>
+            <button onclick="fetchLoyalty()">Refresh Points</button>
+            <div id="loyaltyBox" class="card"></div>
+        </div>
+
+        <!-- Receipts -->
+        <div id="receiptTab" class="tabContent hidden">
+            <h2>Past Receipts</h2>
+            <button onclick="fetchReceipts()">Refresh Receipts</button>
+            <div id="receiptList" class="card"></div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
