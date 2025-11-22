@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kirana Owner Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Kirana Connect</h2>
+        <button onclick="showTab('udhaarTab')">Udhaar Ledger</button>
+        <button onclick="showTab('inventoryTab')">Inventory</button>
+        <button onclick="showTab('billingTab')">Billing</button>
+        <button onclick="showTab('profitTab')">Profit Dashboard</button>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+
+        <!-- Udhaar Tab -->
+        <div id="udhaarTab" class="tabContent">
+            <h2>Udhaar Ledger</h2>
+            <button onclick="fetchUdhaar()">Refresh Udhaar</button>
+            <div id="udhaarList" class="card"></div>
+        </div>
+
+        <!-- Inventory Tab -->
+        <div id="inventoryTab" class="tabContent hidden">
+            <h2>Inventory</h2>
+            <button onclick="fetchInventory()">Refresh Inventory</button>
+
+            <h3>Add New Item</h3>
+            <input id="itemName" placeholder="Item Name">
+            <input id="itemStock" placeholder="Stock">
+            <input id="itemPrice" placeholder="Price">
+            <button onclick="addInventory()">Add Item</button>
+
+            <div id="inventoryList" class="card"></div>
+        </div>
+
+        <!-- Billing Tab -->
+        <div id="billingTab" class="tabContent hidden">
+            <h2>Billing</h2>
+            <input id="billItem" placeholder="Item Name">
+            <input id="billPrice" placeholder="Price">
+            <button onclick="generateBill()">Generate Receipt</button>
+
+            <div id="receiptBox" class="card"></div>
+        </div>
+
+        <!-- Profit Dashboard -->
+        <div id="profitTab" class="tabContent hidden">
+            <h2>Profit Dashboard</h2>
+            <p>Total Sales: ₹12,500 (Static demo)</p>
+            <p>Fast-moving Item: Rice (Static demo)</p>
+        </div>
+
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

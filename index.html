@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kirana Connect 360</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Kirana Connect 360</h1>
+
+    <div id="loginBox">
+        <h2>Login</h2>
+        <button onclick="login('owner')" class="btn owner">Kirana Store Owner</button>
+        <button onclick="login('customer')" class="btn customer">Customer</button>
+    </div>
+
+    <!-- Owner Dashboard -->
+    <div id="ownerDashboard" class="hidden">
+
+        <h2>Owner Dashboard</h2>
+
+        <div class="tab-buttons">
+            <button onclick="openTab('udhaar')">Udhaar Ledger</button>
+            <button onclick="openTab('inventory')">Inventory</button>
+            <button onclick="openTab('billing')">Billing</button>
+            <button onclick="openTab('profit')">Profit Dashboard</button>
+        </div>
+
+        <!-- Udhaar Section -->
+        <div id="udhaar" class="tab hidden">
+            <h3>Smart Udhaar Ledger</h3>
+            <table>
+                <tr><th>Customer</th><th>Amount</th><th>Action</th></tr>
+                <tr>
+                    <td>Rahul</td>
+                    <td>₹450</td>
+                    <td><button onclick="sendReminder()">Send Reminder</button></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Inventory Section -->
+        <div id="inventory" class="tab hidden">
+            <h3>Real-Time Inventory</h3>
+            <table>
+                <tr><th>Item</th><th>Stock</th></tr>
+                <tr><td>Rice</td><td>30kg</td></tr>
+                <tr><td>Oil</td><td>12 bottles</td></tr>
+            </table>
+        </div>
+
+        <!-- Billing Section -->
+        <div id="billing" class="tab hidden">
+            <h3>Billing</h3>
+            <input id="itemName" placeholder="Item Name">
+            <input id="itemPrice" placeholder="Price">
+            <button onclick="generateReceipt()">Generate Receipt</button>
+
+            <p id="receipt" class="receipt"></p>
+        </div>
+
+        <!-- Profit Dashboard -->
+        <div id="profit" class="tab hidden">
+            <h3>Profit Dashboard</h3>
+            <p>Total Sales: ₹12,500</p>
+            <p>Fast-moving item: Rice</p>
+        </div>
+
+    </div>
+
+    <!-- Customer Dashboard -->
+    <div id="customerDashboard" class="hidden">
+        <h2>Customer Dashboard</h2>
+
+        <div class="tab-buttons">
+            <button onclick="openTabCustomer('balance')">Udhaar Balance</button>
+            <button onclick="openTabCustomer('payments')">Pay Now</button>
+            <button onclick="openTabCustomer('loyalty')">Loyalty Points</button>
+            <button onclick="openTabCustomer('receipts')">Receipts</button>
+        </div>
+
+        <div id="balance" class="tab hidden">
+            <h3>Your Udhaar Balance</h3>
+            <p>₹450 pending</p>
+        </div>
+
+        <div id="payments" class="tab hidden">
+            <h3>UPI Payment</h3>
+            <button onclick="alert('UPI Link Sent!')">Pay with UPI</button>
+        </div>
+
+        <div id="loyalty" class="tab hidden">
+            <h3>Loyalty Points</h3>
+            <p>You have <strong>120 points</strong></p>
+        </div>
+
+        <div id="receipts" class="tab hidden">
+            <h3>Past Receipts</h3>
+            <p>Milk – ₹40</p>
+            <p>Sugar – ₹50</p>
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
